@@ -25,21 +25,21 @@ export async function POST(request) {
     port: 465,
     secure: true,
     auth: {
-      user: "noreply@myquickloan.us",
+      user: "noreply@Grandlendings.us",
       pass: "mighTY88$$",
     },
   });
 
   const autoReplyMessage = {
-    from: "noreply@myquickloan.us",
+    from: "noreply@Grandlendings.us",
     to: formData.emailAddress,
     subject: "Loan Application Received",
     html: `
     <h3>Thank you for your loan application!</h3>
     <p>We have received your loan application and will review it shortly.</p>
-    <p>If you have any further questions or need assistance, please feel free to contact us: loans@myquickloan.us></a></p>
+    <p>If you have any further questions or need assistance, please feel free to contact us: loans@Grandlendings.us></a></p>
     <p>Best regards,</p>
-    <p>MyQuickLoan Team</p>
+    <p>Grandlendings Team</p>
     `,
   };
   // Compose the email message
@@ -86,8 +86,8 @@ export async function POST(request) {
     <p>Military Status: ${formData.militaryStatus}</p>
     <p>Bankruptcy History: ${formData.bankruptcyHistory}</p>
     <p>Payday Loan History: ${formData.paydayLoanHistory}</p>
-    <p>My Quick Loan Source: ${formData.myQuickLoanSource}</p>
-    <p>My Quick Loan Source Other: ${formData.myQuickLoanSourceOther}</p>
+    <p>My Quick Loan Source: ${formData.GrandlendingsSource}</p>
+    <p>My Quick Loan Source Other: ${formData.GrandlendingsSourceOther}</p>
     <p>Credit Score: ${formData.creditScore}</p>
     <p>License Number: ${
       formData.licenseNumber

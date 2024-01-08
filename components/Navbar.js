@@ -14,19 +14,14 @@ function Navbar() {
 
   return (
     <>
-      <style jsx>{`
-        .burger {
-          transition: width 0.3s ease-in-out;
-        }
-      `}</style>
       <header
-        className={`holder transition-all bg-slate-800 overflow-hidden items-center text-white ${
+        className={`holder transition-all  overflow-hidden items-center bg-purple-800 text-white ${
           isMobileMenuOpen ? "h-auto transition-all" : "transition"
         }`}
       >
         <div className="flex items-center px-3 py-5 ">
           <nav className="flex w-full justify-between items-center">
-            <div className="LogoSide font-extrabold ml-5">MyQuickLoan</div>
+            <div className="LogoSide font-bold ml-5 text">Grandlendings</div>
             <div
               className={`burger lg:hidden xl:hidden md:hidden cursor-pointer py-2 pr-6 ${
                 isMobileMenuOpen ? "w-10" : "w-auto"
@@ -45,7 +40,7 @@ function Navbar() {
             >
               <ul className="flex cursor-pointer items-center">
                 <NavLink href="/" exact>
-                  <li className="px-2">Home</li>
+                  <li className="px-2 text-sm">Home</li>
                 </NavLink>
                 <NavLink href="/about-us">
                   {" "}
@@ -62,15 +57,15 @@ function Navbar() {
                 </NavLink>
               </ul>
             </div>
-            <div
+            {/* <div
               className={`catchysha hidden md:block lg:block xl:block ${
                 isMobileMenuOpen ? "hidden" : ""
               }`}
             >
-              <button className="rounded-full bg-[#ffffff40] px-4 py-2 font-semibold text-sm">
+              {/* <button className="rounded-full bg-[#ffffff40] px-4 py-2 font-semibold text-sm">
                 Get Started
               </button>
-            </div>
+            </div>  */}
           </nav>
         </div>
         <div

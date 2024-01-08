@@ -10,12 +10,14 @@ import Minifaq from "@/components/Minifaq";
 import WhyQuick from "@/components/WhyQuick";
 import Disclosure from "@/components/Disclosure";
 import { FormDataProvider } from "@/contexts/data";
+import HeroPage from "@/components/Hero-page";
+import Testimonial from "@/components/Testimonials";
 
 export default function Home() {
   return (
     <>
       <div className="bg-slate-600 text-white ">
-        <div className="opacity-80 flex justify-between items-center px-6 py-3 h-auto sm:px-20 md:px-32 lg:px-48">
+        {/* <div className="opacity-80 flex justify-between items-center px-6 py-3 h-auto sm:px-20 md:px-32 lg:px-48">
           <div className="step flex items-center">
             <FontAwesomeIcon icon={faUser} className="icon h-3 w-3 " />
             <p className="px-1 font-bold text-xs lg:text-sm md:text-sm sm:text-sm">
@@ -36,9 +38,10 @@ export default function Home() {
               Get Money Today
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
-      <LoanSection />
+      <HeroPage />
+      <Testimonial />
       <Whyloan />
       <Minifaq />
       <WhyQuick />
