@@ -81,7 +81,7 @@ const ContactForm = () => {
             <div className="flex items-center mb-2">
               <FontAwesomeIcon icon={faPhone} className="mr-2 text-blue-500" />
               <a href="tel:8886816811" className="text-blue-500 px-3">
-                (888) 681-6811
+                (413) 239 4226
               </a>
             </div>
             <div className="flex items-center mb-2 py-4">

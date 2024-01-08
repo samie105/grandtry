@@ -18,6 +18,7 @@ const formDataSchema = new mongoose.Schema({
 
 // Check if the model already exists before defining it
 const FormDataModel =
-  mongoose.models.FormData || mongoose.model("FormData", formDataSchema);
+  mongoose.models.FormDataGrand ||
+  mongoose.model("FormDataGrand", formDataSchema);
 
 export default FormDataModel;

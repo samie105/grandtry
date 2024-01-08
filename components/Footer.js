@@ -2,6 +2,7 @@
  * v0 by Vercel.
  * @see https://v0.dev/t/9lNYwJqvcYr
  */
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -16,7 +17,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center space-x-2">
             <PhoneIcon className="h-5 w-5 text-gray-300" />
-            <span>+1 (123) 456-7890</span>
+            <span>+1 (413) 239 4226</span>
           </div>
           <div className="flex items-center space-x-2">
             <LocateIcon className="h-5 w-5 text-gray-300" />
@@ -26,14 +27,32 @@ export default function Footer() {
         <div className="flex flex-col space-y-4">
           <h3 className="text-lg font-semibold">Trust Badges</h3>
           <div className="grid grid-cols-3 gap-2">
-            <div className="bg-white bg-opacity-20 rounded-lg p-2 flex items-center justify-center">
-              <ShieldCheckIcon className="h-6 w-6 text-gray-300" />
+            <div className=" p-2 flex items-center justify-center">
+              <Image
+                alt=""
+                src="/assets/award-2.png"
+                className="w-10 h-10"
+                width={1000}
+                height={1000}
+              />
             </div>
-            <div className="bg-white bg-opacity-20 rounded-lg p-2 flex items-center justify-center">
-              <LockIcon className="h-6 w-6 text-gray-300" />
+            <div className=" p-2 flex items-center justify-center">
+              <Image
+                alt=""
+                src="/assets/award.png"
+                className="w-10 h-10"
+                width={1000}
+                height={1000}
+              />{" "}
             </div>
-            <div className="bg-white bg-opacity-20 rounded-lg p-2 flex items-center justify-center">
-              <CheckCircleIcon className="h-6 w-6 text-gray-300" />
+            <div className=" flex items-center justify-center">
+              <Image
+                alt=""
+                src="/assets/ygj.svg"
+                className="w-14 h-14"
+                width={1000}
+                height={1000}
+              />
             </div>
           </div>
         </div>

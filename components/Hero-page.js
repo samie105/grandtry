@@ -113,7 +113,7 @@ export default function HeroPage() {
                             <select
                               value={formData.loanAmount}
                               onChange={handleLoanAmountChange}
-                              className="w-64 px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
+                              className="w-64 px-4 py-2 border text-xs h-11 overflow-scroll lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
                             >
                               {Array.from(
                                 { length: 50 },

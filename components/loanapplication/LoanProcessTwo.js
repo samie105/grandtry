@@ -5,11 +5,9 @@ import FormDataContext from "@/contexts/data";
 
 const LoanProcessTwo = ({ step, setStep }) => {
   const { formData, setFormData } = useContext(FormDataContext);
-
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     const isFormDataValid = validateForm();
     setIsFormValid(isFormDataValid);
@@ -175,7 +173,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
           type="email"
           name="emailAddress"
           id="emailAddress"
-          value={formData.emailAddress.toLowerCase()}
+          value={formData.emailAddress && formData.emailAddress.toLowerCase()}
           onChange={handleChange}
           placeholder="Email Address"
           required
