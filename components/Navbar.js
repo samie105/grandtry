@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "./customComponents/Navlink";
+import Image from "next/image";
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,7 +22,15 @@ function Navbar() {
       >
         <div className="flex items-center px-3 py-5 ">
           <nav className="flex w-full justify-between items-center">
-            <div className="LogoSide font-bold ml-5 text">Grandlendings</div>
+            <div className="LogoSide font-bold ml-5 text">
+              <Image
+                alt="Grandlendings"
+                src="/assets/GLlogo.png"
+                width={1000}
+                height={1000}
+                className="w-auto h-10"
+              />
+            </div>
             <div
               className={`burger lg:hidden xl:hidden md:hidden cursor-pointer py-2 pr-6 ${
                 isMobileMenuOpen ? "w-10" : "w-auto"
