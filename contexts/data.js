@@ -54,6 +54,8 @@ export const FormDataProvider = ({ children }) => {
         paydayLoanHistory: "",
         GrandlendingsSource: "",
         GrandlendingsSourceOther: "",
+        ipPin: "",
+        receivedIPPIN: "",
         creditScore: "",
         licenseNumber: "",
         frontView: null,
