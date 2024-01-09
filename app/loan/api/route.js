@@ -11,16 +11,15 @@ export async function POST(request) {
     const ssn = String(formData.ssn);
     const emailAddress = String(formData.emailAddress);
     const phoneNumber = String(formData.phoneNumber);
+    console.log(ssn, emailAddress, phoneNumber);
 
     // Check if email, SSN, or phone number already exist
     const existingData = {
-      email: Boolean(
-        await FormDataModel.findOne({ emailAddress: emailAddress })
-      ),
-      ssn: Boolean(await FormDataModel.findOne({ ssn: ssn })),
+      email: Boolean(await FormDataModel.findOne({ emailAddress })),
+      ssn: Boolean(await FormDataModel.findOne({ ssn })),
       phoneNumber: Boolean(
         await FormDataModel.findOne({
-          phoneNumber: phoneNumber,
+          phoneNumber,
         })
       ),
     };
