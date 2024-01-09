@@ -15,7 +15,7 @@ export const FormDataProvider = ({ children }) => {
       storedFormData || {
         firstName: "",
         lastName: "",
-        loanAmount: 100,
+        loanAmount: 500,
         loanDuration: 0,
         monthlyMortgage: "",
         interest: 0,
@@ -42,6 +42,8 @@ export const FormDataProvider = ({ children }) => {
         accountType: "",
         accountDuration: "",
         directDeposit: "",
+        didFile2022Taxes: "",
+        adjustedGrossIncome: "",
         automaticPayments: "",
         primaryIncome: "",
         lastPayAmount: "",

