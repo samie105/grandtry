@@ -27,7 +27,7 @@ export default function Testimonial() {
           </p>
         </div>
         <div className="bg-white bg-opacity-20 backdrop-blur rounded-lg p-6">
-          <h2 className="text-sm font-bold text-white">Cooper j. Anne</h2>
+          <h2 className="text-sm font-bold text-white">Cooper J. Anne</h2>
           <p className="text-sm text-white opacity-60">TrustPilot</p>
           <div className="flex mt-2">
             <span className="text-yellow-400">★★★★★</span>

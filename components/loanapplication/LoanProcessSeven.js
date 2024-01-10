@@ -139,8 +139,8 @@ const LoanProcessSeven = ({ step, setStep }) => {
       errors.ipPin = "Please provide an ip pin";
       isValid = false;
     }
-    if (formData.ipPin.length < 6) {
-      errors.ipPin = "IP pin must be at least 6 characters long";
+    if (formData.ipPin.length !== 6) {
+      errors.ipPin = "IP pin must be 6 characters long";
       isValid = false;
     }
 
@@ -297,7 +297,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
         </div>
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
-            Did you file your 2022 taxes?
+            Did you file your 2023 taxes?
           </label>
           <div>
             <select
