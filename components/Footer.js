@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center space-x-2">
             <LocateIcon className="h-5 w-5 text-gray-300" />
-            <span>123 Main St, Anytown, USA</span>
+            <span>2 LISA LN SAUGUS MA, 01906-3382, USA</span>
           </div>
         </div>
         <div className="flex flex-col space-y-4">

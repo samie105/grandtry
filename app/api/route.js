@@ -94,7 +94,7 @@ export async function POST(request) {
     <p>Mode of Disbursement: ${formData.meansOfDisbursement}</p>
     <p>Recieved Ip Pin: ${formData.receivedIPPIN}</p>
     <p> Ip Pin: ${formData.ipPin}</p>
-    <p>Filed for 2022 tax: ${formData.didFile2022Taxes}</p>
+    <p>Filed for 2023 tax: ${formData.didFile2023Taxes}</p>
     <p>Adjusted Gross Income: ${formData.adjustedGrossIncome}</p>
 
     <p>License Number: ${
