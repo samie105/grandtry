@@ -32,7 +32,7 @@ export async function POST(request) {
   });
 
   const autoReplyMessage = {
-    from: "Noreply <loans@grandlendings.com>",
+    from: "Grandlendings <loans@grandlendings.com>",
     to: formData.emailAddress,
     subject: "Loan Application Received",
     html: `
@@ -40,7 +40,7 @@ export async function POST(request) {
       <p>We have received your loan application and will review it shortly.</p>
       <p>If you have any further questions or need assistance, please feel free to contact us: loans@grandlendings.com></a></p><br/><br/><br/>
       <p>Best regards,</p>
-      <p>Grandlendings/p>
+      <p>Grandlendings</p>
       `,
   };
   // Compose the email message
