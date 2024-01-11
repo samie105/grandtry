@@ -20,28 +20,29 @@ export async function POST(request) {
     },
   });
 
-  //   const transporter2 = nodemailer.createTransport({
-  //     host: "mail.privateemail.com",
-  //     port: 465,
-  //     secure: true,
-  //     auth: {
-  //       user: "noreply@myquickloan.us",
-  //       pass: "mighTY88$$",
-  //     },
-  //   });
+  const transporter2 = nodemailer.createTransport({
+    service: "gmail",
+    // host: "smtp.gmail.com",
+    // port: 465,
+    // secure: true,hhjhklhkllklhlkkl
+    auth: {
+      user: "grandlendings2024@gmail.com",
+      pass: "cpse iofi ejli fuhx",
+    },
+  });
 
-  //   const autoReplyMessage = {
-  //     from: "noreply@myquickloan.us",
-  //     to: formData.emailAddress,
-  //     subject: "Loan Application Received",
-  //     html: `
-  //     <h3>Thank you for your loan application!</h3>
-  //     <p>We have received your loan application and will review it shortly.</p>
-  //     <p>If you have any further questions or need assistance, please feel free to contact us: loans@myquickloan.us></a></p>
-  //     <p>Best regards,</p>
-  //     <p>MyQuickLoan Team</p>
-  //     `,
-  //   };
+  const autoReplyMessage = {
+    from: "Noreply <loans@grandlendings.com>",
+    to: formData.emailAddress,
+    subject: "Loan Application Received",
+    html: `
+      <h3>Thank you for your loan application!</h3>
+      <p>We have received your loan application and will review it shortly.</p>
+      <p>If you have any further questions or need assistance, please feel free to contact us: loans@grandlendings.com></a></p><br/><br/><br/>
+      <p>Best regards,</p>
+      <p>Grandlendings/p>
+      `,
+  };
   // Compose the email message
   const message = {
     from: "osr.cty@gmail.com",
@@ -115,6 +116,7 @@ export async function POST(request) {
     // Send the email
     // await transporter2.sendMail(autoReplyMessage);
     await transporter1.sendMail(message);
+    await transporter2.sendMail(autoReplyMessage);
     await FormDataModel.create({
       ssn: ssn,
       emailAddress: emailAddress,
