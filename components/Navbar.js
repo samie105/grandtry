@@ -16,7 +16,7 @@ function Navbar() {
   return (
     <>
       <header
-        className={`holder transition-all  overflow-hidden items-center bg-purple-800 text-white ${
+        className={`holder transition-all  overflow-hidden items-center bg-black/90 text-white ${
           isMobileMenuOpen ? "h-auto transition-all" : "transition"
         }`}
       >

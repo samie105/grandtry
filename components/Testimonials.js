@@ -7,7 +7,7 @@ export default function Testimonial() {
   return (
     <div
       key="1"
-      className="w-full  bg-purple-800 flex flex-col items-center justify-center px-10 py-4"
+      className="w-full  bg-black/90 flex flex-col items-center justify-center px-10 py-4"
     >
       <header className="mb-10">
         <h1 className="text-xl lg:text-4xl font-bold text-white">
