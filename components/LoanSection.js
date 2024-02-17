@@ -153,7 +153,7 @@ export default function LoanSection() {
           <div className="last-laugh mt-8 text-center">
             <div className="button flex flex-col justify-center">
               <button
-                className="rounded-lg bg-black w-2/4 mx-auto text-white font-bold px-5 py-3 text-sm"
+                className="rounded-lg bg-purple-800 w-2/4 mx-auto text-white font-bold px-5 py-3 text-sm"
                 onClick={handleLoanApplication}
               >
                 Apply for this Loan

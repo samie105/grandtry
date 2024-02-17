@@ -4,7 +4,7 @@ export default function Disclosure() {
     <>
       <div className="w-full h-auto py-12 lg:px-16 px-2 md:px-12">
         <div className="textHeader">
-          <h1 className="font-bold text-black/90 text-lg py-5 px-5">
+          <h1 className="font-bold text-purple-800 text-lg py-5 px-5">
             Grandlendings Disclosure
           </h1>
         </div>

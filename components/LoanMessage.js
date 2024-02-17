@@ -21,7 +21,7 @@ export default function Component() {
   return (
     <div
       key="1"
-      className="flex flex-col min-h-screen bg-black/90 dark:bg-black/90"
+      className="flex flex-col min-h-screen bg-purple-800 dark:bg-purple-800"
     >
       <main className="flex-1 flex flex-col items-center justify-center py-12 md:py-24 lg:py-32">
         <div className="space-y-4 text-center">
@@ -88,10 +88,10 @@ export default function Component() {
           </CardContent>
           <CardFooter>
             <Link
-              className="inline-flex h-10 items-center justify-center rounded-md font-bold bg-white w-full px-8 text-sm text-black/90 shadow transition-colors hover:bg-gray-200/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black/90 disabled:pointer-events-none disabled:opacity-50"
+              className="inline-flex h-10 items-center justify-center rounded-md font-bold bg-white w-full px-8 text-sm text-purple-800 shadow transition-colors hover:bg-gray-200/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-800 disabled:pointer-events-none disabled:opacity-50"
               href="#"
             >
-              <HomeIcon className="h-5 w-5 mr-2 text-black/90 font-bold" />
+              <HomeIcon className="h-5 w-5 mr-2 text-purple-800 font-bold" />
               Back to Home
             </Link>
           </CardFooter>

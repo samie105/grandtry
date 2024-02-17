@@ -7,7 +7,7 @@ export default function AboutUs() {
     <>
       <div className="page-container w-full">
         <section className="imageNhero w-full relative overflow-hidden">
-          <div className="overlay absolute bg-black opacity-80 w-full h-full"></div>
+          <div className="overlay absolute bg-purple-800 opacity-80 w-full h-full"></div>
           <div className="text-container flex flex-col justify-center items-center absolute z-10 w-full h-full">
             <div className="text-header text-lg sm:text-xl md:text-3xl lg:text-5xl text-white font-extrabold opacity-90">
               About Us

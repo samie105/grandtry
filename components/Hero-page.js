@@ -92,12 +92,12 @@ export default function HeroPage() {
               <Link
                 href={"/loan"}
                 target="_blank"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-black/90  transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/90"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-purple-800  transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-800"
               >
                 Apply Now
               </Link>
               <Link
-                className="inline-flex h-10 items-center justify-center rounded-md border border-white px-8 text-sm font-medium text-white shadow transition-colors hover:bg-white hover:text-black/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/90"
+                className="inline-flex h-10 items-center justify-center rounded-md border border-white px-8 text-sm font-medium text-white shadow transition-colors hover:bg-white hover:text-purple-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-800"
                 href="/about-us"
               >
                 About Us

@@ -7,7 +7,7 @@ export default function Testimonial() {
   return (
     <div
       key="1"
-      className="w-full  bg-black/90 flex flex-col items-center justify-center px-10 py-4"
+      className="w-full  bg-purple-800 flex flex-col items-center justify-center px-10 py-4"
     >
       <header className="mb-10">
         <h1 className="text-xl lg:text-4xl font-bold text-white">
@@ -16,25 +16,31 @@ export default function Testimonial() {
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className="bg-white bg-opacity-20 backdrop-blur rounded-lg p-6">
-          <h2 className="text-sm font-bold text-white">Quincy Mose</h2>
-          <p className="text-sm text-white opacity-60">CEO, Soto-bulls co.</p>
+          <h2 className="text-sm font-bold text-white">
+            Carroll Morrisseau Briggs
+          </h2>
+          <p className="text-sm text-white opacity-60">Self employed</p>
           <div className="flex mt-2">
             <span className="text-yellow-400">★★★★☆</span>
           </div>
           <p className="text-white mt-4">
-            "Grandlendings still remains one of the best out there. It took me
-            to greater levels."
+            So far I have completed 3 deals with grandlendings. They have been a
+            great asset to my real estate investing journey. There were no
+            hiccups with my funding or any closings"
           </p>
         </div>
         <div className="bg-white bg-opacity-20 backdrop-blur rounded-lg p-6">
-          <h2 className="text-sm font-bold text-white">Cooper J. Anne</h2>
-          <p className="text-sm text-white opacity-60">TrustPilot</p>
+          <h2 className="text-sm font-bold text-white">Ethier Maxwell</h2>
+          <p className="text-sm text-white opacity-60">Nil</p>
           <div className="flex mt-2">
             <span className="text-yellow-400">★★★★★</span>
           </div>
           <p className="text-white mt-4">
-            "Grandlendings deems more and more reliable in loan services, this
-            is wholesome!!!."
+            I’ve had a ton of lenders tell me they can perform… then back out 2
+            days before closing. However, that wasn’t the case here. they said
+            they could make it work, and they did. We aren’t willing to work
+            with a lot of hard money lenders, but grandlendings is a team I’d
+            work with again any day."
           </p>
         </div>
         <div className="bg-white bg-opacity-20 backdrop-blur rounded-lg p-6">
