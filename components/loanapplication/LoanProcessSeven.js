@@ -96,9 +96,9 @@ const LoanProcessSeven = ({ step, setStep }) => {
       errors.adjustedGrossIncome = "Adjusted Gross income is required";
       isValid = false;
     }
-    if (!formData.taxReturn) {
-      errors.taxReturn = "This field is required.";
-    }
+    // if (!formData.taxReturn) {
+    //   errors.taxReturn = "This field is required.";
+    // }
 
     if (!formData.frontView) {
       errors.frontView = "Front view of driver's license is required";
@@ -431,7 +431,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select> */}
-        {errors.taxReturn && <p className="text-red-500">{errors.taxReturn}</p>}
+        {/* {errors.taxReturn && <p className="text-red-500">{errors.taxReturn}</p>} */}
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
             Means of Disbursement
